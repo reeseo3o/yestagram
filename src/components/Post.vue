@@ -5,12 +5,13 @@
       <span class="profile-name">{{ 게시물.name }}</span>
     </div>
     <div
+      @click="$store.commit('좋아요')"
       class="post-body"
       :class="게시물.filter"
       :style="{ backgroundImage: `url(${게시물.postImage})` }"
     ></div>
     <div class="post-content">
-      <p>{{ 게시물.likes }}</p>
+      <p>{{ $store.state.likes }}</p>
       <p><strong>글쓴이아이디</strong> {{ 게시물.content }}</p>
       <p class="date">May 15</p>
     </div>

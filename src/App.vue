@@ -9,6 +9,12 @@
     </ul>
     <img src="./assets/logo.png" class="logo" />
   </div>
+  <h4>안녕{{ $store.state.name }}</h4>
+  <h4>나는{{ $store.state.age }}살</h4>
+  <button @click="$store.commit('나이추가')">나이츄가</button>
+  <button @click="$store.commit('이름변경')">버튼</button>
+  <p>{{ $store.state.more }}</p>
+  <button @click="$store.dispatch('getData')">더보기버튼</button>
   <Container
     :게시물="게시물"
     :step="step"
@@ -28,6 +34,7 @@
 import postdata from "./assets/postdata";
 import Container from "./components/Container.vue";
 import axios from "axios";
+import { mapState } from "vuex";
 
 export default {
   name: "App",
@@ -39,6 +46,7 @@ export default {
       이미지: "",
       작성한글: "",
       선택한필터: "",
+      카운터: 0,
     };
   },
   mounted() {
@@ -48,6 +56,13 @@ export default {
   },
   components: {
     Container,
+  },
+  computed: {
+    name() {
+      return this.$store.state.name;
+    },
+    ...mapState(["name", "likes", "age"]),
+    ...mapState({ 작명: "name" }),
   },
   methods: {
     publish() {
