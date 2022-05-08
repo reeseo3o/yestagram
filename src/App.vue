@@ -9,19 +9,18 @@
     </ul>
     <img src="./assets/logo.png" class="logo" />
   </div>
-  <h4>안녕{{ $store.state.name }}</h4>
-  <h4>나는{{ $store.state.age }}살</h4>
-  <button @click="$store.commit('나이추가')">나이츄가</button>
+  <!--   <h4>안녕{{ $store.state.name }}</h4>
+  <h4>나는{{ $store.state.age }}살</h4> -->
+  <!--  <button @click="$store.commit('나이추가')">나이츄가</button>
   <button @click="$store.commit('이름변경')">버튼</button>
-  <p>{{ $store.state.more }}</p>
-  <button @click="$store.dispatch('getData')">더보기버튼</button>
+  <button @click="$store.dispatch('getData')">더보기버튼</button> -->
   <Container
     :게시물="게시물"
     :step="step"
     :이미지="이미지"
     @write="작성한글 = $event"
   />
-  <button @click="more">더보기</button>
+  <!--  <button @click="more">더보기</button> -->
   <div class="footer">
     <ul class="footer-button-plus">
       <input @change="upload" type="file" id="file" class="inputfile" />
@@ -40,7 +39,7 @@ export default {
   name: "App",
   data() {
     return {
-      step: 0,
+      step: 3,
       게시물: postdata,
       더보기: 0,
       이미지: "",
